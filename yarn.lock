@@ -1451,10 +1451,10 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@terminal-packages/sdk@^1.0.22":
-  version "1.0.22"
-  resolved "https://registry.yarnpkg.com/@terminal-packages/sdk/-/sdk-1.0.22.tgz#378800eace6671bc24300987fd963a130ae13568"
-  integrity sha512-H9VB6EgsvWUJMGkDA+Vz3Em+m6SWbOyJ/Ec3nC+3SXgep80oUecIm3/R7rdjuUpEPx+bCSgVRk3BxbDnJRDN2Q==
+"@terminal-packages/sdk@^1.0.23":
+  version "1.0.23"
+  resolved "https://registry.yarnpkg.com/@terminal-packages/sdk/-/sdk-1.0.23.tgz#4744e20eef10afe6c99b1f0ec6ebe815d148fcd6"
+  integrity sha512-k8Dcmg6qzKgkCjJZmvAawv9U+Q2RKsGlOmJI8tUCkNuLslayyjqzLxUUnnJt+pHR5Ww3JjoIVIQdHmymrLYvng==
   dependencies:
     cross-fetch "^3.0.4"
     web3-providers "^1.0.0-beta.55"

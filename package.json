@@ -5,7 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.5.1",
     "@material-ui/styles": "^4.5.0",
-    "@terminal-packages/sdk": "^1.0.22",
+    "@terminal-packages/sdk": "^1.0.23",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-scripts": "3.2.0",

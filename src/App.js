@@ -2,19 +2,27 @@ import React from 'react';
 import Web3 from 'web3';
 import { makeStyles } from '@material-ui/styles';
 import { Button, Typography } from '@material-ui/core';
-
-import { TerminalHttpProvider, EnvironmentTypes } from '@terminal-packages/sdk';
+import {
+  TerminalHttpProvider,
+  SourceType,
+  EnvironmentTypes,
+} from '@terminal-packages/sdk';
 
 import SendTx from './SendTx';
 
+// const web3 = new Web3(
+//   new Web3.providers.HttpProvider(
+//     'https://mainnet.infura.io/v3/d44c7ae787e4470499b9a8118db2f71e',
+//   ),
+// );
+
 const web3 = new Web3(
   new TerminalHttpProvider({
-    host:
-      'https://newly-relaxed-grackle.quiknode.io/e565e82e-0fe8-48ed-b8d6-99e7f91b54ea/kUsNv4sxZA6FJ1gEsLSxHA==/',
-    source: 'QUICKNODE DEMO',
-    apiKey: 'zYwDsCwqeD6Sg9plihI/xQ==',
+    host: 'https://newly-relaxed-grackle.quiknode.io',
+    apiKey: 'T690K1sYaAVB+0bP7li2KQ==',
+    source: SourceType.Infura,
+    projectId: 'NYnLJDYjPAbBWpvA',
     environment: EnvironmentTypes.dev,
-    projectId: 'NPkEByjPkAbnldvp',
   }),
 );
 
