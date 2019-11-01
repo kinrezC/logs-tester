@@ -7,14 +7,37 @@ import {
   SourceType,
   EnvironmentTypes,
 } from '@terminal-packages/sdk';
+import TestButton from './TestButton';
 
 import SendTx from './SendTx';
+import { Bitski } from 'bitski';
+import Portis from '@portis/web3';
 
-// const web3 = new Web3(
-//   new Web3.providers.HttpProvider(
-//     'https://mainnet.infura.io/v3/d44c7ae787e4470499b9a8118db2f71e',
-//   ),
-// );
+const apiKey = 'T690K1sYaAVB+0bP7li2KQ==';
+
+const bitski = new Bitski('d56192ce-8a28-4aaa-9b3e-66b83b3dbbca');
+
+const bitskiWeb3 = new Web3(
+  new TerminalHttpProvider({
+    customHttpProvider: bitski.getProvider(),
+    apiKey: apiKey,
+    source: 'BITSKI',
+    projectId: 'NYnLJDYjPAbBWpvA',
+    environment: EnvironmentTypes.dev,
+  }),
+);
+
+const portis = new Portis('my_id', 'mainnet');
+
+const portistWeb3 = new Web3(
+  new TerminalHttpProvider({
+    apiKey: apiKey,
+    source: 'PORTIS',
+    projectId: 'NYnLJDYjPAbBWpvA',
+    environment: EnvironmentTypes.dev,
+    customHttpProvider: portis.provider,
+  }),
+);
 
 const web3 = new Web3(
   new TerminalHttpProvider({
@@ -87,6 +110,8 @@ const App = () => {
           <div className={classes.buttonWrapper}>
             <SendTx />
           </div>
+          <TestButton web3Provider={portistWeb3} name="Portis Test" />
+          <TestButton web3Provider={bitskiWeb3} name="Bitski Test" />
         </div>
       </div>
     </div>
