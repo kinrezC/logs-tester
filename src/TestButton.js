@@ -14,7 +14,7 @@ const TestButton = ({ web3Provider, name }) => {
   return (
     <div className={classes.buttonWrapper}>
       <Button
-        onClick={() => web3Provider.eth.getBlockNumber()}
+        onClick={() => web3Provider.eth.getBlockNumber().then(console.log)}
         variant="contained"
         color="primary"
       >

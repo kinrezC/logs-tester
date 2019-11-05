@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Web3 from 'web3';
 import { makeStyles } from '@material-ui/styles';
 import { Button, Typography } from '@material-ui/core';
@@ -12,6 +12,8 @@ import TestButton from './TestButton';
 import SendTx from './SendTx';
 import { Bitski } from 'bitski';
 import Portis from '@portis/web3';
+import ProviderEngine from 'web3-provider-engine';
+import RpcSubProvider from 'web3-provider-engine/subproviders/rpc';
 
 const apiKey = 'T690K1sYaAVB+0bP7li2KQ==';
 
@@ -29,7 +31,7 @@ const bitskiWeb3 = new Web3(
 
 const portis = new Portis('my_id', 'mainnet');
 
-const portistWeb3 = new Web3(
+const portisWeb3 = new Web3(
   new TerminalHttpProvider({
     apiKey: apiKey,
     source: 'PORTIS',
@@ -48,6 +50,31 @@ const web3 = new Web3(
     environment: EnvironmentTypes.dev,
   }),
 );
+
+const radarWeb3 = new Web3(
+  new TerminalHttpProvider({
+    host:
+      'https://shared-parity-mainnet.nodes.deploy.radar.tech/?apikey=efc25932091f9925e2cd73814c76cebc8ad561e3cf040aab',
+    apiKey: apiKey,
+    source: 'RADAR',
+    projectId: 'NYnLJDYjPAbBWpvA',
+    environment: EnvironmentTypes.dev,
+  }),
+);
+
+const e = new ProviderEngine();
+
+const engineWeb3 = new Web3(
+  new TerminalHttpProvider({
+    customHttpProvider: e,
+    source: 'ENGINE',
+    apiKey: apiKey,
+    environment: EnvironmentTypes.dev,
+    projectId: 'NYnLJDYjPAbBWpvA',
+  }),
+);
+
+// const engineWeb3 = new Web3(e);
 
 const useStyles = makeStyles({
   root: {
@@ -87,6 +114,17 @@ const useStyles = makeStyles({
 const App = () => {
   const classes = useStyles();
 
+  useEffect(async () => {
+    await e.addProvider(
+      new RpcSubProvider({
+        rpcUrl: 'https://mainnet.infura.io/v3/d44c7ae787e4470499b9a8118db2f71e',
+      }),
+    );
+
+    await e.start();
+    console.log(e);
+  }, []);
+
   const getBlockNumber = () => {
     web3.eth.getBlockNumber().then(console.log);
   };
@@ -110,8 +148,10 @@ const App = () => {
           <div className={classes.buttonWrapper}>
             <SendTx />
           </div>
-          <TestButton web3Provider={portistWeb3} name="Portis Test" />
+          <TestButton web3Provider={portisWeb3} name="Portis Test" />
           <TestButton web3Provider={bitskiWeb3} name="Bitski Test" />
+          <TestButton web3Provider={radarWeb3} name="Radar Test" />
+          <TestButton web3Provider={engineWeb3} name="Engine Test" />
         </div>
       </div>
     </div>
