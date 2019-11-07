@@ -1,19 +1,19 @@
-import React from 'react';
-import Portis from '@portis/web3';
-import Web3 from 'web3';
-import { Button } from '@material-ui/core';
-import { TerminalHttpProvider, EnvironmentTypes } from '@terminal-packages/sdk';
+import React from "react";
+import Portis from "@portis/web3";
+import Web3 from "web3";
+import { Button } from "@material-ui/core";
+import { TerminalHttpProvider, EnvironmentTypes } from "@terminal-packages/sdk";
 
-const portis = new Portis('my_id', 'mainnet');
+const portis = new Portis("my_id", "mainnet");
 
 const web3 = new Web3(
   new TerminalHttpProvider({
-    apiKey: 'T690K1sYaAVB+0bP7li2KQ==',
-    source: 'PORTIS',
-    projectId: 'NYnLJDYjPAbBWpvA',
+    apiKey: "T690K1sYaAVB+0bP7li2KQ==",
+    source: "PORTIS",
+    projectId: "NYnLJDYjPAbBWpvA",
     environment: EnvironmentTypes.dev,
-    customHttpProvider: portis.provider,
-  }),
+    customHttpProvider: portis.provider
+  })
 );
 
 const PortisTest = () => {

@@ -11,20 +11,21 @@ const useStyles = makeStyles({
 
 const TestButton = ({ web3Provider, name }) => {
   const classes = useStyles();
+
+  const sendTx = () => {
+    web3Provider.eth.getBlockNumber().then(console.log);
+    web3Provider.eth.getAccounts().then(res => {
+      console.log(res);
+      web3Provider.eth.sendTransaction({
+        from: res,
+        to: "0xE22FD0840d127E44557D5E19A0A9a52EAfc3e297",
+        value: web3Provider.utils.toWei("0.01")
+      });
+    });
+  };
   return (
     <div className={classes.buttonWrapper}>
-      <Button
-        onClick={() => {
-          // web3Provider.eth
-          //   .getTransaction(
-          //     "0x3f4cc688280cbdaf5b7d98733ee8b0784907a0d392e11940d9e2c098c44af1e5"
-          //   )
-          //   .then(console.log);
-          web3Provider.eth.getBlockNumber().then(console.log);
-        }}
-        variant="contained"
-        color="primary"
-      >
+      <Button onClick={() => sendTx()} variant="contained" color="primary">
         {name}
       </Button>
     </div>
