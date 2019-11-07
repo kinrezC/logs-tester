@@ -1,118 +1,118 @@
-import React, { useEffect, useState } from 'react';
-import Web3 from 'web3';
-import { makeStyles } from '@material-ui/styles';
-import { Button, Typography } from '@material-ui/core';
+import React, { useEffect, useState } from "react";
+import Web3 from "web3";
+import { makeStyles } from "@material-ui/styles";
+import { Button, Typography } from "@material-ui/core";
 import {
   TerminalHttpProvider,
   SourceType,
   EnvironmentTypes,
-  Web3Versions,
-} from '@terminal-packages/sdk';
-import TestButton from './TestButton';
-import FortmaticButton from './FortmaticButton';
-import PortisButton from './PortisButton';
-import SendTx from './SendTx';
-import { Bitski } from 'bitski';
-import Portis from '@portis/web3';
-import ProviderEngine from 'web3-provider-engine';
-import RpcSubProvider from 'web3-provider-engine/subproviders/rpc';
-import Torus from '@toruslabs/torus-embed';
-import SafeProvider from 'safe-web3-provider';
-import Fortmatic from 'fortmatic';
+  Web3Versions
+} from "@terminal-packages/sdk";
+import TestButton from "./TestButton";
+import FortmaticButton from "./FortmaticButton";
+import PortisButton from "./PortisButton";
+import SendTx from "./SendTx";
+import { Bitski } from "bitski";
+import Portis from "@portis/web3";
+import ProviderEngine from "web3-provider-engine";
+import RpcSubProvider from "web3-provider-engine/subproviders/rpc";
+import Torus from "@toruslabs/torus-embed";
+import SafeProvider from "safe-web3-provider";
+import Fortmatic from "fortmatic";
 
-const apiKey = 'Z0CsA9B5xAkCjfw0kcKh6g==';
-const projectID = 'bYzPZdjZezVQKvLA';
+const apiKey = "Z0CsA9B5xAkCjfw0kcKh6g==";
+const projectID = "bYzPZdjZezVQKvLA";
 
 // SKALE
-let schainEndpoint = 'http://sip1.skalenodes.com:10046';
+let schainEndpoint = "http://sip1.skalenodes.com:10046";
 
 const skaleWeb3 = new Web3(
   new TerminalHttpProvider({
     apiKey: apiKey,
-    source: 'SKALE',
+    source: "SKALE",
     host: schainEndpoint,
     projectId: projectID,
-    environment: EnvironmentTypes.live,
+    environment: EnvironmentTypes.live
     //web3Version: Web3Versions.one
-  }),
+  })
 );
 
 // FORTMATIC
-const fm = new Fortmatic('pk_test_62CB7F9DC2ABF2E9', 'rinkeby');
+const fm = new Fortmatic("pk_test_62CB7F9DC2ABF2E9", "rinkeby");
 const fmProvider = fm.getProvider();
 window.web3 = new Web3(
   new TerminalHttpProvider({
     customHttpProvider: fmProvider,
     apiKey: apiKey,
     projectId: projectID,
-    source: 'Fortmatic',
-  }),
+    source: "Fortmatic"
+  })
 );
 
 // GNOSIS SAFE -- NOT WORKING CURRENTLY
 const gProvider = new SafeProvider({
-  rpcUrl: 'https://mainnet.infura.io/v3/d44c7ae787e4470499b9a8118db2f71e',
+  rpcUrl: "https://mainnet.infura.io/v3/d44c7ae787e4470499b9a8118db2f71e"
 });
 const gnosisWeb3 = new Web3(
   new TerminalHttpProvider({
     customHttpProvider: gProvider,
     apiKey: apiKey,
-    source: 'GNOSIS',
+    source: "GNOSIS",
     projectId: projectID,
     environment: EnvironmentTypes.live,
-    web3Version: Web3Versions.one,
-  }),
+    web3Version: Web3Versions.one
+  })
 );
 //const gnosisWeb3 = new Web3(gProvider);
 
 /// BITSKI
-const bitski = new Bitski('d56192ce-8a28-4aaa-9b3e-66b83b3dbbca');
+const bitski = new Bitski("d56192ce-8a28-4aaa-9b3e-66b83b3dbbca");
 
 const bitskiWeb3 = new Web3(
   new TerminalHttpProvider({
     customHttpProvider: bitski.getProvider(),
     apiKey: apiKey,
-    source: 'BITSKI',
+    source: "BITSKI",
     projectId: projectID,
-    environment: EnvironmentTypes.live,
-  }),
+    environment: EnvironmentTypes.live
+  })
 );
 
 // PORTIS
-const portis = new Portis('486b2a54-3e4a-43fe-be5e-827a33750d0e', 'mainnet');
+const portis = new Portis("486b2a54-3e4a-43fe-be5e-827a33750d0e", "mainnet");
 
 const portisWeb3 = new Web3(
   new TerminalHttpProvider({
     apiKey: apiKey,
-    source: 'PORTIS',
+    source: "PORTIS",
     projectId: projectID,
     environment: EnvironmentTypes.live,
-    customHttpProvider: portis.provider,
-  }),
+    customHttpProvider: portis.provider
+  })
 );
 
 // INFURA
 const infuraWeb3 = new Web3(
   new TerminalHttpProvider({
-    host: 'https://mainnet.infura.io/v3/d44c7ae787e4470499b9a8118db2f71e',
+    host: "https://mainnet.infura.io/v3/d44c7ae787e4470499b9a8118db2f71e",
     apiKey: apiKey,
     source: SourceType.Infura,
     projectId: projectID,
     environment: EnvironmentTypes.live,
-    web3Version: Web3Versions.one,
-  }),
+    web3Version: Web3Versions.one
+  })
 );
 
 // RADAR
 const radarWeb3 = new Web3(
   new TerminalHttpProvider({
     host:
-      'https://shared-parity-mainnet.nodes.deploy.radar.tech/?apikey=efc25932091f9925e2cd73814c76cebc8ad561e3cf040aab',
+      "https://shared-parity-mainnet.nodes.deploy.radar.tech/?apikey=efc25932091f9925e2cd73814c76cebc8ad561e3cf040aab",
     apiKey: apiKey,
-    source: 'RADAR',
+    source: "RADAR",
     projectId: projectID,
-    environment: EnvironmentTypes.live,
-  }),
+    environment: EnvironmentTypes.live
+  })
 );
 
 //WEB3-PROVIDER-ENGINE
@@ -124,62 +124,47 @@ const engineWeb3 = new Web3(
     source: SourceType.Web3ProviderEngine,
     apiKey: apiKey,
     environment: EnvironmentTypes.dev,
-    projectId: 'NYnLJDYjPAbBWpvA',
-    web3Version: Web3Versions.one,
-  }),
+    projectId: "NYnLJDYjPAbBWpvA",
+    web3Version: Web3Versions.one
+  })
 );
-
-// const fm = new Fortmatic('');
-// const fmProvider = fm.getProvider();
-
-// const fortmaticWeb3 = new Web3(
-//   new TerminalHttpProvider({
-//     customHttpProvider: fmProvider,
-//     apiKey: apiKey,
-//     source: 'FORTMATIC',
-//     environment: EnvironmentTypes.dev,
-//     projectId: 'NYnLJDYjPAbBWpvA',
-//   }),
-// );
-
-// const engineWeb3 = new Web3(e);
 
 // TORUS
 const torus = new Torus();
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: 'white',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
+    backgroundColor: "white",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
     margin: 0,
-    position: 'absolute',
+    position: "absolute",
     padding: 0,
-    height: '100%',
+    height: "100%",
     minHeight: 980,
-    minWidth: '100%',
+    minWidth: "100%",
     top: 0,
-    left: 0,
+    left: 0
   },
   container: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column"
   },
   title: {
-    marginBottom: 30,
+    marginBottom: 30
   },
   buttonsContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row"
   },
   buttonWrapper: {
-    padding: 20,
-  },
+    padding: 20
+  }
 });
 
 const App = () => {
@@ -190,8 +175,8 @@ const App = () => {
     // SETUP for Web3-provider-engine
     await e.addProvider(
       new RpcSubProvider({
-        rpcUrl: 'https://mainnet.infura.io/v3/d44c7ae787e4470499b9a8118db2f71e',
-      }),
+        rpcUrl: "https://mainnet.infura.io/v3/d44c7ae787e4470499b9a8118db2f71e"
+      })
     );
 
     await e.start();
@@ -204,12 +189,12 @@ const App = () => {
       new Web3(
         new TerminalHttpProvider({
           apiKey: apiKey,
-          source: 'TORUS',
+          source: "TORUS",
           customHttpProvider: torus.provider,
           projectId: projectID,
-          web3Version: Web3Versions.one,
-        }),
-      ),
+          web3Version: Web3Versions.one
+        })
+      )
     );
   }, []);
 
