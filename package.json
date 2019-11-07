@@ -11,11 +11,7 @@
     "@walletconnect/browser": "^1.0.0-beta.38",
     "@walletconnect/qrcode-modal": "^1.0.0-beta.38",
     "bitski": "^0.10.6",
-<<<<<<< HEAD
-    "fortmatic": "^0.8.2",
-=======
     "fortmatic": "^1.0.0",
->>>>>>> 2c1cac97eb908bde914ea7436f97c03ca08428dd
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-scripts": "3.2.0",
