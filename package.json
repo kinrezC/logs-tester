@@ -6,14 +6,21 @@
     "@material-ui/core": "^4.5.1",
     "@material-ui/styles": "^4.5.2",
     "@portis/web3": "^2.0.0-beta.49",
-    "@terminal-packages/sdk": "^1.0.26",
+    "@terminal-packages/sdk": "^1.0.28",
+    "@toruslabs/torus-embed": "^0.2.3",
     "@walletconnect/browser": "^1.0.0-beta.38",
     "@walletconnect/qrcode-modal": "^1.0.0-beta.38",
     "bitski": "^0.10.6",
+<<<<<<< HEAD
     "fortmatic": "^0.8.2",
+=======
+    "fortmatic": "^1.0.0",
+>>>>>>> 2c1cac97eb908bde914ea7436f97c03ca08428dd
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-scripts": "3.2.0",
+    "safe-web3-provider": "github:gnosis/safe-web3-provider#v1.1.1",
+    "squarelink": "^1.1.4",
     "web3": "^1.2.1",
     "web3-provider-engine": "^15.0.4"
   },
