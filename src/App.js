@@ -121,10 +121,10 @@ const e = new ProviderEngine();
 const engineWeb3 = new Web3(
   new TerminalHttpProvider({
     customHttpProvider: e,
-    source: "ENGINE",
+    source: SourceType.Web3ProviderEngine,
     apiKey: apiKey,
-    environment: EnvironmentTypes.live,
-    projectId: projectID,
+    environment: EnvironmentTypes.dev,
+    projectId: "NYnLJDYjPAbBWpvA",
     web3Version: Web3Versions.one
   })
 );
