@@ -98,7 +98,6 @@ export const providers = [
   { input: bitskiObject, name: 'Bitski Test' },
   { input: fmObject, name: 'Fortmatic Test' },
   { input: portisObject, name: 'Portis Test' },
-  // { input: torusObject, name: 'Torus Test' },
   { input: infuraObject, name: 'Infura Test' },
   { input: radarObject, name: 'Radar Test' },
   { input: gnosisObject, name: 'Gnosis Test' },

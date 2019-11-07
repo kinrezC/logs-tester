@@ -11,6 +11,7 @@ import { torusObject, torus, web3ProviderEngine, providers } from './constants';
 import useStyles from './styles';
 
 const App = () => {
+  const [torusWeb3, setTorusWeb3] = useState(null);
   const classes = useStyles();
 
   useEffect(async () => {
@@ -20,6 +21,10 @@ const App = () => {
       }),
     );
     await web3ProviderEngine.start();
+
+    await torus.init();
+    await torus.login();
+    setTorusWeb3(new Web3(new TerminalHttpProvider(torusObject)));
   }, []);
 
   return (
@@ -38,6 +43,7 @@ const App = () => {
               name={provider.name}
             />
           ))}
+          <TestButton web3Provider={torusWeb3} name={'Torus Test'} />
         </div>
       </div>
     </div>
