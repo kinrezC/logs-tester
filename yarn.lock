@@ -1808,13 +1808,14 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@terminal-packages/sdk@^1.0.28":
-  version "1.0.30"
-  resolved "https://registry.yarnpkg.com/@terminal-packages/sdk/-/sdk-1.0.30.tgz#7c691f41e4af06f1aa73c6bd83d003ac0abfbe86"
-  integrity sha512-ViXrApe2N+lD8EWVY1q9GgorQyrhIwpqtO4SXHIagqVqO8yLznAXh3xuMFvATbCDW3cF5ZsIAIqaXCCIBI3LOA==
+"@terminal-packages/sdk@^1.0.31":
+  version "1.0.31"
+  resolved "https://registry.yarnpkg.com/@terminal-packages/sdk/-/sdk-1.0.31.tgz#30bab2b4023fedbd852d31c27581ff23324e52aa"
+  integrity sha512-1hm/YzLcsL1+ecu6zapD+Hq5YoR6O3hlIpyZOdbvxDoMfn7lMDTUj+1/+YpoDiku6k4x7UsseS4124ZuhHsfrg==
   dependencies:
     apollo-link "^1.2.13"
     cross-fetch "^3.0.4"
+    form-data "^2.5.1"
     graphql "^14.5.8"
     web3-providers "^1.0.0-beta.55"
     web3-providers-ws "^1.2.1"

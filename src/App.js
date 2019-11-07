@@ -11,23 +11,15 @@ import { torusObject, torus, web3ProviderEngine, providers } from './constants';
 import useStyles from './styles';
 
 const App = () => {
-  const [torusWeb3, setTorusWeb3] = useState(null);
   const classes = useStyles();
 
   useEffect(async () => {
-    // SETUP for Web3-provider-engine
     await web3ProviderEngine.addProvider(
       new RpcSubProvider({
         rpcUrl: 'https://mainnet.infura.io/v3/d44c7ae787e4470499b9a8118db2f71e',
       }),
     );
-
     await web3ProviderEngine.start();
-
-    //Setup for TORUS
-    await torus.init();
-    await torus.login();
-    setTorusWeb3(new Web3(new TerminalHttpProvider(torusObject)));
   }, []);
 
   return (

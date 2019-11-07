@@ -78,12 +78,14 @@ export const gnosisObject = {
   ...baseObject,
   customHttpProvider: gProvider,
   source: 'GnosisSafe',
+  web3Version: Web3Versions.one,
 };
 
 export const web3ProviderEngineObject = {
   ...baseObject,
   customHttpProvider: web3ProviderEngine,
   source: SourceType.Web3ProviderEngine,
+  web3Version: Web3Versions.one,
 };
 
 export const skaleObject = {
