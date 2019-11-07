@@ -15,6 +15,7 @@ import { Bitski } from 'bitski';
 import Portis from '@portis/web3';
 import ProviderEngine from 'web3-provider-engine';
 import RpcSubProvider from 'web3-provider-engine/subproviders/rpc';
+import Fortmatic from 'fortmatic';
 
 const apiKey = 'T690K1sYaAVB+0bP7li2KQ==';
 
@@ -75,6 +76,19 @@ const engineWeb3 = new Web3(
     web3Version: Web3Versions.one,
   }),
 );
+
+// const fm = new Fortmatic('');
+// const fmProvider = fm.getProvider();
+
+// const fortmaticWeb3 = new Web3(
+//   new TerminalHttpProvider({
+//     customHttpProvider: fmProvider,
+//     apiKey: apiKey,
+//     source: 'FORTMATIC',
+//     environment: EnvironmentTypes.dev,
+//     projectId: 'NYnLJDYjPAbBWpvA',
+//   }),
+// );
 
 // const engineWeb3 = new Web3(e);
 
@@ -139,21 +153,14 @@ const App = () => {
         </Typography>
         <div className={classes.buttonsContainer}>
           <div className={classes.buttonWrapper}>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => getBlockNumber()}
-            >
-              Get Block Number
-            </Button>
-          </div>
-          <div className={classes.buttonWrapper}>
             <SendTx />
           </div>
+          <TestButton web3Provider={web3} name="Standard Endpoint" />
           <TestButton web3Provider={portisWeb3} name="Portis Test" />
           <TestButton web3Provider={bitskiWeb3} name="Bitski Test" />
           <TestButton web3Provider={radarWeb3} name="Radar Test" />
           <TestButton web3Provider={engineWeb3} name="Engine Test" />
+          <TestButton web3Provider={fortmaticWeb3} name="Fortmatic Test" />
         </div>
       </div>
     </div>
