@@ -2,10 +2,6 @@ import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles({
   root: {
-    backgroundColor: 'white',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
     margin: 0,
     position: 'absolute',
     padding: 0,
@@ -15,6 +11,13 @@ const useStyles = makeStyles({
     top: 0,
     left: 0,
   },
+  logoWrapper: {
+    padding: 20,
+  },
+  logoContainer: {
+    height: 50,
+    width: 225,
+  },
   container: {
     display: 'flex',
     justifyContent: 'center',
@@ -22,7 +25,13 @@ const useStyles = makeStyles({
     flexDirection: 'column',
   },
   title: {
-    marginBottom: 30,
+    fontFamily: 'Nunito Sans',
+    marginTop: 30,
+  },
+  subtitle: {
+    fontFamily: 'Nunito Sans',
+    marginTop: 15,
+    marginBottom: 25,
   },
   buttonsContainer: {
     display: 'flex',
@@ -33,6 +42,10 @@ const useStyles = makeStyles({
   },
   testButtonContainer: {
     padding: 25,
+    minHeight: 100,
+    height: 175,
+    minWidth: 100,
+    width: 100,
   },
 });
 

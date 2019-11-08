@@ -33,9 +33,19 @@ const App = () => {
 
   return (
     <div className={classes.root}>
+      <div className={classes.logoWrapper}>
+        <img
+          src="https://storage.cloud.google.com/terminal-assets/images/text-black-robot-light-face-black-horizontal.png?authuser=0&organizationId=1025847849015"
+          alt="Hex logo"
+          className={classes.logoContainer}
+        />
+      </div>
       <div className={classes.container}>
         <Typography variant="h3" className={classes.title}>
-          Logs/Analytics Demo
+          Logs & Analytics
+        </Typography>
+        <Typography variant="subtitle1" className={classes.subtitle}>
+          Demo Dashboard
         </Typography>
         <div className={classes.buttonsContainer}>
           <Grid
