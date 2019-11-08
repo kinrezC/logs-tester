@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   },
   logoContainer: {
     height: 50,
-    width: 225,
+    width: 245,
   },
   container: {
     display: 'flex',

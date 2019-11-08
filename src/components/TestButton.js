@@ -1,15 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { Button } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles({
   button: {
-    '& .MuiButton-contained': {
-      height: '100%',
-      minHeight: '100%',
-      width: '40%',
-      minWidth: '40%',
-      backgroundColor: 'white',
+    '& .MuiButton-outlined': {
+      height: 1000,
     },
   },
 });
@@ -22,7 +18,7 @@ const TestButton = ({ web3Provider, name }) => {
       variant="outlined"
       className={classes.button}
     >
-      {name}
+      <Typography variant="h6">{name}</Typography>
     </Button>
   );
 };
