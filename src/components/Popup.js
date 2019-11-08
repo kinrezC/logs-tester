@@ -1,18 +1,14 @@
-import React from "react";
-import Web3 from "web3";
-import { Button } from "@material-ui/core";
-import Popup from "reactjs-popup";
-import contract from "./abi";
-import { portisObject } from "./constants";
-import { fmObject } from "./constants";
-import { TerminalHttpProvider } from "@terminal-packages/sdk";
+import React from 'react';
+import Web3 from 'web3';
+import { Button } from '@material-ui/core';
+import Popup from 'reactjs-popup';
+import { portisObject } from '../constants/constants';
+import { fmObject } from '../constants/constants';
+import { TerminalHttpProvider } from '@terminal-packages/sdk';
+
 const web3 = new Web3(window.terminal.ethereum);
 const portisWeb3 = new Web3(new TerminalHttpProvider(portisObject));
 const fmWeb3 = new Web3(new TerminalHttpProvider(fmObject));
-// const dai = new web3.eth.Contract(
-//   contract,
-//   web3.utils.toChecksumAddress("0x9103fFc81A842b6d99e2B80c8Ec625D4575569e8")
-// );
 
 const PopupButton = () => {
   const sendTransactionFm = () => {
@@ -20,8 +16,8 @@ const PopupButton = () => {
       console.log(res);
       fmWeb3.eth.sendTransaction({
         from: res,
-        to: "0xE22FD0840d127E44557D5E19A0A9a52EAfc3e297",
-        value: fmWeb3.utils.toWei("0.1")
+        to: '0xE22FD0840d127E44557D5E19A0A9a52EAfc3e297',
+        value: fmWeb3.utils.toWei('0.1'),
       });
     });
   };
@@ -30,8 +26,8 @@ const PopupButton = () => {
       console.log(res);
       portisWeb3.eth.sendTransaction({
         from: res,
-        to: "0xE22FD0840d127E44557D5E19A0A9a52EAfc3e297",
-        value: portisWeb3.utils.toWei("0.1")
+        to: '0xE22FD0840d127E44557D5E19A0A9a52EAfc3e297',
+        value: portisWeb3.utils.toWei('0.1'),
       });
     });
   };
@@ -41,8 +37,8 @@ const PopupButton = () => {
       : web3.eth
           .sendTransaction({
             from: window.ethereum.selectedAddress,
-            to: "0xeC1FEF973021d2eF6C4bC709b6f3eb1b4bbaB3aD",
-            amount: web3.utils.toWei(".00001", "ether")
+            to: '0xeC1FEF973021d2eF6C4bC709b6f3eb1b4bbaB3aD',
+            amount: web3.utils.toWei('.00001', 'ether'),
           })
           .then(console.log);
 
