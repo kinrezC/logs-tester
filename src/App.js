@@ -4,7 +4,6 @@ import { Typography, Grid } from '@material-ui/core';
 import { TerminalHttpProvider } from '@terminal-packages/sdk';
 import TestButton from './components/TestButton';
 import RpcSubProvider from 'web3-provider-engine/subproviders/rpc';
-import PopupButton from './components/Popup';
 import {
   torusObject,
   torus,
