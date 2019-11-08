@@ -29,9 +29,10 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
+    marginTop: 75,
   },
-  buttonWrapper: {
-    padding: 20,
+  testButtonContainer: {
+    padding: 25,
   },
 });
 

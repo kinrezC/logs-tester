@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Web3 from 'web3';
-import { Typography } from '@material-ui/core';
+import { Typography, Grid } from '@material-ui/core';
 import { TerminalHttpProvider } from '@terminal-packages/sdk';
 import TestButton from './components/TestButton';
 import RpcSubProvider from 'web3-provider-engine/subproviders/rpc';
@@ -38,16 +38,38 @@ const App = () => {
           Logs/Analytics Demo
         </Typography>
         <div className={classes.buttonsContainer}>
-          <div className={classes.buttonWrapper}>
-            <PopupButton />
-          </div>
-          {providers.map(provider => (
-            <TestButton
-              web3Provider={new Web3(new TerminalHttpProvider(provider.input))}
-              name={provider.name}
-            />
-          ))}
-          <TestButton web3Provider={torusWeb3} name={'Torus Test'} />
+          <Grid
+            container
+            direction="row"
+            justify="space-around"
+            alignItems="center"
+          >
+            {providers.map(provider => (
+              <Grid
+                container
+                xs={4}
+                justify="center"
+                alignContent="center"
+                className={classes.testButtonContainer}
+              >
+                <TestButton
+                  web3Provider={
+                    new Web3(new TerminalHttpProvider(provider.input))
+                  }
+                  name={provider.name}
+                />
+              </Grid>
+            ))}
+            <Grid
+              container
+              xs={4}
+              justify="center"
+              alignContent="center"
+              className={classes.testButtonContainer}
+            >
+              <TestButton web3Provider={torusWeb3} name={'Torus Test'} />
+            </Grid>
+          </Grid>
         </div>
       </div>
     </div>
