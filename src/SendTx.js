@@ -1,14 +1,14 @@
-import React from 'react';
-import Web3 from 'web3';
-import { Button } from '@material-ui/core';
+import React from "react";
+import Web3 from "web3";
+import { Button } from "@material-ui/core";
 
-import contract from './abi';
+import contract from "./abi";
 
 const web3 = new Web3(window.terminal.ethereum);
 
 const dai = new web3.eth.Contract(
   contract,
-  web3.utils.toChecksumAddress('0x9103fFc81A842b6d99e2B80c8Ec625D4575569e8'),
+  web3.utils.toChecksumAddress("0x9103fFc81A842b6d99e2B80c8Ec625D4575569e8")
 );
 
 const SendTx = () => {
@@ -23,9 +23,9 @@ const SendTx = () => {
         // })
         // .then(console.log);
         dai.methods
-          .addNumbers('100', '101')
+          .addNumbers("100", "101")
           .send({
-            from: window.ethereum.selectedAddress,
+            from: window.ethereum.selectedAddress
           })
           .then(console.log);
   return (

@@ -5,7 +5,7 @@ import { TerminalHttpProvider } from "@terminal-packages/sdk";
 import SendTx from "./SendTx";
 import TestButton from "./TestButton";
 import RpcSubProvider from "web3-provider-engine/subproviders/rpc";
-
+import PopupButton from "./Popup";
 import { torusObject, torus, web3ProviderEngine, providers } from "./constants";
 
 import useStyles from "./styles";
@@ -15,16 +15,13 @@ const App = () => {
   const classes = useStyles();
 
   useEffect(async () => {
-    // SETUP for Web3-provider-engine
     await web3ProviderEngine.addProvider(
       new RpcSubProvider({
         rpcUrl: "https://mainnet.infura.io/v3/d44c7ae787e4470499b9a8118db2f71e"
       })
     );
-
     await web3ProviderEngine.start();
 
-    //Setup for TORUS
     await torus.init();
     await torus.login();
     setTorusWeb3(new Web3(new TerminalHttpProvider(torusObject)));
@@ -38,7 +35,7 @@ const App = () => {
         </Typography>
         <div className={classes.buttonsContainer}>
           <div className={classes.buttonWrapper}>
-            <SendTx />
+            <PopupButton />
           </div>
           {providers.map(provider => (
             <TestButton
@@ -46,6 +43,7 @@ const App = () => {
               name={provider.name}
             />
           ))}
+          <TestButton web3Provider={torusWeb3} name={"Torus Test"} />
         </div>
       </div>
     </div>

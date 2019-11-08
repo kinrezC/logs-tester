@@ -10,7 +10,7 @@ const apiKey = "Z0CsA9B5xAkCjfw0kcKh6g==";
 const projectId = "bYzPZdjZezVQKvLA";
 
 const bitski = new Bitski("d56192ce-8a28-4aaa-9b3e-66b83b3dbbca");
-const fm = new Fortmatic("pk_test_62CB7F9DC2ABF2E9", "rinkeby");
+const fm = new Fortmatic("pk_live_B83377C416C361E1", "mainnet");
 const portis = new Portis("486b2a54-3e4a-43fe-be5e-827a33750d0e", "mainnet");
 
 // Torus requires an initialization step
@@ -71,8 +71,7 @@ export const infuraObject = {
 export const radarObject = {
   ...baseObject,
   host: radar,
-  source: "Radar",
-  web3Version: 
+  source: "Radar"
 };
 
 export const gnosisObject = {
@@ -99,7 +98,6 @@ export const providers = [
   { input: bitskiObject, name: "Bitski Test" },
   { input: fmObject, name: "Fortmatic Test" },
   { input: portisObject, name: "Portis Test" },
-  // { input: torusObject, name: 'Torus Test' },
   { input: infuraObject, name: "Infura Test" },
   { input: radarObject, name: "Radar Test" },
   { input: gnosisObject, name: "Gnosis Test" },
