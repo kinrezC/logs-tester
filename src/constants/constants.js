@@ -18,7 +18,7 @@ const bitski = new Bitski('d56192ce-8a28-4aaa-9b3e-66b83b3dbbca');
 const fm = new Fortmatic('pk_live_B83377C416C361E1', 'mainnet');
 const portis = new Portis('486b2a54-3e4a-43fe-be5e-827a33750d0e', 'mainnet');
 
-const torus = new Torus();
+export const torus = new Torus();
 
 const bitskiProvider = bitski.getProvider();
 const fmProvider = fm.getProvider();
@@ -59,7 +59,7 @@ const portisObject = {
   source: SourceType.Portis,
 };
 
-const torusObject = {
+export const torusObject = {
   ...baseObject,
   customHttpProvider: torus.provider,
   source: SourceType.Torus,
@@ -105,12 +105,6 @@ export const initializeWeb3ProviderEngine = async () => {
     }),
   );
   await web3ProviderEngine.start();
-};
-
-export const initializeTorus = async () => {
-  await torus.init();
-  await torus.login();
-  return new Web3Versions(new TerminalHttpProvider(torusObject));
 };
 
 export const providers = [

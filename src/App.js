@@ -4,7 +4,8 @@ import { Typography, Grid } from '@material-ui/core';
 import { TerminalHttpProvider } from '@terminal-packages/sdk';
 import TestButton from './components/TestButton';
 import {
-  initializeTorus,
+  torus,
+  torusObject,
   initializeWeb3ProviderEngine,
   providers,
 } from './constants/constants';
@@ -17,7 +18,9 @@ const App = () => {
 
   useEffect(async () => {
     initializeWeb3ProviderEngine();
-    setTorusWeb3(initializeTorus());
+    await torus.init();
+    await torus.login();
+    setTorusWeb3(new Web3(new TerminalHttpProvider(torusObject)));
   }, []);
 
   return (
