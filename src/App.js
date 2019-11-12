@@ -3,11 +3,9 @@ import Web3 from 'web3';
 import { Typography, Grid } from '@material-ui/core';
 import { TerminalHttpProvider } from '@terminal-packages/sdk';
 import TestButton from './components/TestButton';
-import RpcSubProvider from 'web3-provider-engine/subproviders/rpc';
 import {
-  torusObject,
-  torus,
-  web3ProviderEngine,
+  initializeTorus,
+  initializeWeb3ProviderEngine,
   providers,
 } from './constants/constants';
 
@@ -18,16 +16,8 @@ const App = () => {
   const classes = useStyles();
 
   useEffect(async () => {
-    await web3ProviderEngine.addProvider(
-      new RpcSubProvider({
-        rpcUrl: 'https://mainnet.infura.io/v3/d44c7ae787e4470499b9a8118db2f71e',
-      }),
-    );
-    await web3ProviderEngine.start();
-
-    await torus.init();
-    await torus.login();
-    setTorusWeb3(new Web3(new TerminalHttpProvider(torusObject)));
+    initializeWeb3ProviderEngine();
+    setTorusWeb3(initializeTorus());
   }, []);
 
   return (
