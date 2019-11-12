@@ -1,8 +1,4 @@
-import {
-  Web3Versions,
-  SourceType,
-  TerminalHttpProvider,
-} from '@terminal-packages/sdk';
+import { Web3Versions, SourceType } from '@terminal-packages/sdk';
 import { Bitski } from 'bitski';
 import Portis from '@portis/web3';
 import ProviderEngine from 'web3-provider-engine';
